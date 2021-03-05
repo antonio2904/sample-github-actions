@@ -1,10 +1,11 @@
-image: seanghay/android-ci
+image: jangrewe/gitlab-ci-android
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
 stages:
   - build
   - test
+  - deploy
 cache:
   key: ${CI_PROJECT_ID}
   paths:
@@ -17,6 +18,16 @@ unitTest:
   stage: test
   script:
     - ./gradlew -Pci --console=plain testDebugUnitTest
+  artifacts:
+    expire_in: 7 days
+    paths:
+      - app/build/reports/tests/testDebugUnitTest/
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
   artifacts:
     expire_in: 7 days
     paths:
