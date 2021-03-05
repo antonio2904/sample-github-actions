@@ -1,0 +1,14 @@
+image: seanghay/android-ci
+before_script:
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
+  - chmod +x ./gradlew
+stages:
+  - build
+cache:
+  key: ${CI_PROJECT_ID}
+  paths:
+    - .gradle/
+assembleDebug:
+  stage: build
+  script:
+    - ./gradlew assembleDebug
