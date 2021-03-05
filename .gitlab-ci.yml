@@ -5,11 +5,19 @@ before_script:
 stages:
   - build
   - test
-  - deploy
 cache:
   key: ${CI_PROJECT_ID}
   paths:
     - .gradle/
+
+lintDebug:
+  stage: build
+  script:
+    - ./gradlew lintDebug
+  artifacts:
+    expire_in: 7 days
+    paths:
+      - app/build/reports/
 assembleDebug:
   stage: build
   script:
@@ -22,11 +30,3 @@ unitTest:
     expire_in: 7 days
     paths:
       - app/build/reports/tests/testDebugUnitTest/
-pages:
-  stage: deploy
-  script:
-    - mv app/build/reports/tests/testDebugUnitTest/ public
-  artifacts:
-    expire_in: 7 days
-    paths:
-      - public
