@@ -3,17 +3,17 @@ before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
 stages:
-  - build
+#  - build
   - test
   - deploy
-cache:
-  key: ${CI_PROJECT_ID}
-  paths:
-    - .gradle/
-assembleDebug:
-  stage: build
-  script:
-    - ./gradlew assembleDebug
+#cache:
+#  key: ${CI_PROJECT_ID}
+#  paths:
+#    - .gradle/
+#assembleDebug:
+#  stage: build
+#  script:
+#    - ./gradlew assembleDebug
 unitTest:
   stage: test
   script:
@@ -25,10 +25,10 @@ unitTest:
 pages:
   stage: deploy
   script:
-    - mkdir .public
-    - cp -r * .public
-    - mv .public public
+#    - mkdir .public
+#    - cp -r * .public
+    - mv app/build/reports/tests/testDebugUnitTest/ public
   artifacts:
     expire_in: 7 days
     paths:
-      - app/build/reports/tests/testDebugUnitTest/
+      - public
