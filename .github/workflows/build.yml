@@ -20,7 +20,7 @@ jobs:
           # If arguments is missing or empty, then Gradle is not executed
           arguments: |
               build
-              testDebug
+            -x test
           # arguments can be multi-line for better readability
           # arguments: |
           #  --no-paralell
@@ -41,4 +41,4 @@ jobs:
       - name: Build the app
         run: ./gradlew build --build-cache
       - name: Run unit test
-        run: ./gradlew testDebug --build-cache
+        run: ./gradlew test --build-cache
