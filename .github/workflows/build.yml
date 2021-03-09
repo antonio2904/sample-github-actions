@@ -11,10 +11,14 @@ jobs:
   lintCheck:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
       - name: Check lint
         run: ./gradlew lintDebug
   unitTest:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
       - name: Run unit test
         run: ./gradlew test
