@@ -4,11 +4,15 @@ jobs:
   assembleDebug:
     runs-on: ubuntu-latest
     steps:
-      - name: "Build Android project"
-        uses: vgaidarji/android-github-actions-build@v1.0.1
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Build the app
+        run: ./gradlew assembleDebug
+      - name: Upload files
+        uses: actions/upload-artifact@v2
         with:
-          args: "./gradlew assembleDebug"
-
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk
   lintCheck:
     runs-on: ubuntu-latest
     steps:
@@ -16,6 +20,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Check lint
         run: ./gradlew lintDebug
+
   unitTest:
     runs-on: ubuntu-latest
     steps:
