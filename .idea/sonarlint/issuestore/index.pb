@@ -13,3 +13,11 @@ r
 Bapp/src/test/java/com/antony/testingsample/RegistrationUtilTest.kt,6\6\66790652bf965bf1fe002bdb1bad7754490073c8
 j
 :app/src/main/java/com/antony/testingsample/MainActivity.kt,a\1\a10f53fb2a537bb67e0b8d9be9b726823f0212a2
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
+|
+Lapp/src/androidTest/java/com/antony/testingsample/ExampleInstrumentedTest.kt,0\1\01ddcfa770c89bcd2c1aefa215767bef984851cd
+>
+.gitlab-ci.yml,5\8\587d266bb27a4dc3022bbed44dfa19849df3044c

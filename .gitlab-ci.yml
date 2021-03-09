@@ -13,7 +13,7 @@ cache:
 lintDebug:
   stage: build
   script:
-    - ./gradlew lintDebug
+    - ./gradlew lintDebug --build-cache --configure-on-demand
   artifacts:
     expire_in: 7 days
     paths:
@@ -21,11 +21,11 @@ lintDebug:
 assembleDebug:
   stage: build
   script:
-    - ./gradlew assembleDebug
+    - ./gradlew assembleDebug --build-cache --configure-on-demand
 unitTest:
   stage: test
   script:
-    - ./gradlew -Pci --console=plain testDebugUnitTest
+    - ./gradlew -Pci --console=plain testDebugUnitTest --build-cache --configure-on-demand
   artifacts:
     expire_in: 7 days
     paths:
