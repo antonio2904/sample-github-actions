@@ -2,7 +2,7 @@ name: Build
 on: [pull_request, push]
 jobs:
   assembleDebug:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -14,14 +14,14 @@ jobs:
           name: apk
           path: app/build/outputs/apk/debug/app-debug.apk
   lintCheck:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
       - name: Check lint
         run: ./gradlew lintDebug
   unitTest:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
