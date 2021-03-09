@@ -24,6 +24,7 @@ assembleDebug:
     - ./gradlew assembleDebug --build-cache --configure-on-demand
 unitTest:
   stage: test
+  when: manual
   script:
     - ./gradlew -Pci --console=plain testDebugUnitTest --build-cache --configure-on-demand
   artifacts:
