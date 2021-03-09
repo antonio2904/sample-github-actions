@@ -5,29 +5,28 @@ before_script:
 stages:
   - build
   - test
-cache:
-  key: ${CI_PROJECT_ID}
-  paths:
-    - .gradle/
+#cache:
+#  key: ${CI_PROJECT_ID}
+#  paths:
+#    - .gradle/
 
 lintDebug:
   stage: build
   script:
     - ./gradlew lintDebug --build-cache --configure-on-demand
-  artifacts:
-    expire_in: 7 days
-    paths:
-      - app/build/reports/
+#  artifacts:
+#    expire_in: 7 days
+#    paths:
+#      - app/build/reports/
 assembleDebug:
   stage: build
   script:
     - ./gradlew assembleDebug --build-cache --configure-on-demand
 unitTest:
   stage: test
-  when: manual
   script:
     - ./gradlew -Pci --console=plain testDebugUnitTest --build-cache --configure-on-demand
-  artifacts:
-    expire_in: 7 days
-    paths:
-      - app/build/reports/tests/testDebugUnitTest/
+#  artifacts:
+#    expire_in: 7 days
+#    paths:
+#      - app/build/reports/tests/testDebugUnitTest/
