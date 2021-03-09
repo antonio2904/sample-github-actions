@@ -4,6 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Android Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.android/build-cache
+          key: android-${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+          android-${{ runner.os }}-
       - name: Checkout the code
         uses: actions/checkout@v2
       - name: Build the app
