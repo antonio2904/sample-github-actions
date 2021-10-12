@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Run Tests') {
             steps {
+                source /etc/profile
                 sh "./gradlew testDebugUnitTest"
             }
         }
