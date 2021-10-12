@@ -2,8 +2,8 @@ pipeline {
     agent { dockerfile true }
     stages {
         stage('Run Tests') {
+            source /etc/profile
             steps {
-                source /etc/profile
                 sh "./gradlew testDebugUnitTest"
             }
         }
