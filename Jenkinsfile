@@ -1,10 +1,16 @@
 pipeline {
-    agent { dockerfile true }
-    stages {
-        stage('Build') {
-            steps {
-                sh "./gradlew assembleDebug"
-            }
-        }
+  agent {
+    docker {
+      image 'androidsdk/android-29'
     }
+
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh './gradlew assembleDebug'
+      }
+    }
+
+  }
 }
