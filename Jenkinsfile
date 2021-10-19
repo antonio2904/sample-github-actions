@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'chmod o-rwx /opt/android-sdk'
+        sh "chmod +x -R ${env.WORKSPACE}"
         sh './gradlew assembleDebug'
       }
     }
