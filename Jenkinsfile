@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "chmod +x -R ${env.WORKSPACE}"
+        sh "chown -R $(whoami) $ANDROID_HOME"
         sh './gradlew assembleDebug'
       }
     }
