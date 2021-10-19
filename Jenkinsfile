@@ -1,9 +1,9 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Run Tests') {
+        stage('Build') {
             steps {
-                sh "echo hello world"
+                sh "./gradlew assembleDebug"
             }
         }
     }
