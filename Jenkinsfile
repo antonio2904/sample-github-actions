@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'androidsdk/android-29'
+      image 'thyrlian/android-sdk'
     }
 
   }
