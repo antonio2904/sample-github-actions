@@ -1,7 +1,7 @@
 pipeline {
     agent {
+        dockerfile true
         docker { 
-            dockerfile true 
             args '-u root' 
         }
     }
