@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh './gradlew clean'
-                sh './gradlew --build-cache assembleRelease'
+//                 sh './gradlew clean'
+                sh 'fastlane run gradle'
             }
         }
     }
