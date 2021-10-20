@@ -8,10 +8,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'chown -R $(antonyleons) $ANDROID_HOME'
         sh './gradlew assembleDebug'
       }
     }
-
   }
 }
