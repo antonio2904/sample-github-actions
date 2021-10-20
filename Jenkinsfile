@@ -19,7 +19,6 @@ pipeline {
         stage('Distribute') {
             steps {
                 sh 'bundle update --bundler'
-                sh 'export FIREBASE_TOKEN=4/1AX4XfWi-lIpsTtmi1fS2yXpy1ipAXBfP32m0ryewicoDUO5o-GFOeeP0nAo'
                 sh 'bundle exec fastlane distribute'
             }
         }
