@@ -1,10 +1,10 @@
 pipeline {
     agent {
-        dockerfile true
+//         dockerfile true
 //         args '-u root'
-//         docker { 
-//             args '-u root' 
-//         }
+        dockerfile { 
+            args '-u root' 
+        }
     }
     stages {
         stage('Test') {
