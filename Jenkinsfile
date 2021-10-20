@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { image 'thyrlian/android-sdk' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'adb --version'
             }
         }
     }
