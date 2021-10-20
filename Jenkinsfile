@@ -1,7 +1,5 @@
 pipeline {
     agent {
-//         dockerfile true
-//         args '-u root'
         dockerfile { 
             args '-u root' 
         }
@@ -9,6 +7,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                sh './gradlew clean'
                 sh './gradlew --build-cache assembleDebug'
             }
         }
