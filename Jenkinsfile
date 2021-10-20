@@ -16,5 +16,10 @@ pipeline {
                 sh 'bundle exec fastlane beta'
             }
         }
+        stage('Distribute') {
+            steps {
+                sh 'bundle exec fastlane distribute'
+            }
+        }
     }
 }
