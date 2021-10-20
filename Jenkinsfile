@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'chown -R $(whoami) $ANDROID_HOME'
+        sh 'chown -R $(antonio2904) $ANDROID_HOME'
         sh './gradlew assembleDebug'
       }
     }
