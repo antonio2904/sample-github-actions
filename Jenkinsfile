@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                sh 'bundle update --bundler'
                 sh 'bundle exec fastlane test'
             }
         }
