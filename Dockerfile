@@ -32,3 +32,5 @@ gem install bundler && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 apt-get autoremove -y && \
 apt-get clean
+
+CMD ["/bin/sh"]
