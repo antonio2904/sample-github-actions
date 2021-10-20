@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh './gradlew assembleDebug'
+        sh '''chmod chown -R $(whoami) $ANDROID_HOME 
+        ./gradlew assembleDebug'''
       }
     }
   }
