@@ -8,7 +8,7 @@ pipeline {
         stage('Test') {
             steps {
 //                 sh './gradlew clean'
-                sh 'fastlane run gradle'
+                sh 'bundle exec fastlane run gradle'
             }
         }
     }
