@@ -37,7 +37,7 @@ platform :android do
         # build_android_app is a built-in fastlane action.
         firebase_app_distribution(
             app: "1:1026274536055:android:acf843e337cf9b7ccaf472",
-	    firebase_cli_token: "4/1AX4XfWi-lIpsTtmi1fS2yXpy1ipAXBfP32m0ryewicoDUO5o-GFOeeP0nAo",
+	    firebase_cli_token: "1//0g7SYzdCDXMVcCgYIARAAGBASNwF-L9Ir5dLILC4Iz1GnlcBRJf_qpuUj2pXydiL3-Du-BgUoASyJ-7GURFrb3AJet8WOdwaPakk",
             testers: "antonyleons29@gmail.com",
             release_notes: "Lots of amazing new features to test out!"
         )
