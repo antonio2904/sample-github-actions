@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'thyrlian/android-sdk' args '-u root' }
+        docker { 
+            image 'thyrlian/android-sdk' 
+            args '-u root' 
+        }
     }
     stages {
         stage('Test') {
