@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh './gradlew assembleDebug'
+                sh './gradlew --build-cache assembleDebug'
             }
         }
     }
