@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'thyrlian/android-sdk' }
+        docker { image 'thyrlian/android-sdk' args '-u root' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'adb --version'
+                sh './gradlew assembleDebug'
             }
         }
     }
