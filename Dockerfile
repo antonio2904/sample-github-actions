@@ -7,9 +7,9 @@ RUN apt-get update \
     && apt-get install build-essential -y
 
 # Set Environment Variables
-ENV SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip" \
-    ANDROID_HOME="/home/local/android-sdk" \
-    ANDROID_VERSION=29
+ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip" \
+    ANDROID_HOME="/usr/local/android-sdk" \
+    ANDROID_VERSION=30
 
 # Download Android SDK
 RUN mkdir "$ANDROID_HOME" .android \
@@ -23,7 +23,7 @@ RUN mkdir "$ANDROID_HOME" .android \
 
 # Install Android Build Tool and Libraries
 RUN $ANDROID_HOME/tools/bin/sdkmanager --update
-RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;29.0.2" \
+RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;30.0.3" \
     "platforms;android-${ANDROID_VERSION}" \
     "platform-tools"
 
