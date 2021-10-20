@@ -1,9 +1,12 @@
-node {
-  checkout scm
-  
-  def customImage = docker.build("thyrlian/android-sdk")
-  
-  customImage.inside {
-    sh "build"
-  }
+pipeline {
+    agent {
+        docker { image 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 }
