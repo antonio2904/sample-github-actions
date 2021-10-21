@@ -17,7 +17,6 @@ pipeline {
         }
         stage('Distribute') {
             steps {
-                sh 'bundle update --bundler'
                 sh 'bundle exec fastlane distribute'
             }
         }
