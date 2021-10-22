@@ -2,6 +2,7 @@ pipeline {
     agent {
         dockerfile { 
             args '-u root'
+            reuseNode true
         }
     }
     stages {
