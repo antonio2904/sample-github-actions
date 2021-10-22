@@ -11,6 +11,11 @@ pipeline {
                 sh 'bundle update fastlane'
             }
         }
+        stage('Lint check') {
+            steps {
+                sh 'bundle exec fastlane lint'
+            }
+        }
         stage('Build Release') {
             steps {
                 sh 'bundle exec fastlane beta'
