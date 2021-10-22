@@ -5,8 +5,9 @@ pipeline {
         }
     }
     stages {
-        stage('Update Bundler') {
+        stage('Update Fastlane and Bundler') {
             steps {
+                sh 'bundle update fastlane'
                 sh 'bundle update --bundler'
             }
         }
