@@ -6,11 +6,11 @@ pipeline {
         }
     }
     stages {
-//         stage('Update Fastlane and Bundler') {
-//             steps {
-//                 sh 'bundle update --bundler'
+        stage('Update Fastlane and Bundler') {
+            steps {
+                sh 'bundle update --bundler'
 //                 sh 'bundle update fastlane'
-//             }
+            }
 //         }
         stage('Lint check') {
             steps {
