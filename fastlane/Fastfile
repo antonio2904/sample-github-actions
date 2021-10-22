@@ -20,18 +20,13 @@ platform :android do
   	lane :test do
     		gradle(task: "test", build_type: "Release")
   	end
-
-  	desc "Release Build"
-  	lane :beta do
-    		gradle(task: "assemble", build_type: "Release")
-  	end
 	
 	desc "Lint check"
 	lane :lint do
 		gradle(task: "lint", build_type: "Release")
 	end
 
-  	desc "Distribute"
+  	desc "Build and Distribute"
   	lane :distribute do
         	gradle(task: "assemble", build_type: "Release")
         	# build_android_app is a built-in fastlane action.
