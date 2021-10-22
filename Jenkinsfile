@@ -31,7 +31,6 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'app/**/*.apk', fingerprint: true
-            junit 'app/build/reports/**/*.xml'
         }
     }
 }
