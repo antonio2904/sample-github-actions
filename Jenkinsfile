@@ -11,7 +11,7 @@ pipeline {
                 sh 'bundle update --bundler'
 //                 sh 'bundle update fastlane'
             }
-//         }
+        }
         stage('Lint check') {
             steps {
                 sh 'bundle exec fastlane lint'
