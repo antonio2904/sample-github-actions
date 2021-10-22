@@ -17,12 +17,7 @@ pipeline {
                 sh 'bundle exec fastlane lint'
             }
         }
-        stage('Build Release') {
-            steps {
-                sh 'bundle exec fastlane beta'
-            }
-        }
-        stage('Distribute') {
+        stage('Build and Distribute') {
             steps {
                 sh 'bundle exec fastlane distribute'
             }
