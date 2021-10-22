@@ -23,7 +23,7 @@ platform :android do
 
   	desc "Release Build"
   	lane :beta do
-    		gradle(task: "clean assembleRelease")
+    		gradle(task: "assemble", build_type: "Release")
   	end
 	
 	desc "Lint check"
