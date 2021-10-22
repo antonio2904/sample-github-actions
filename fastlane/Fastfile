@@ -16,49 +16,30 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
+  	desc "Runs all the tests"
+  	lane :test do
+    		gradle(task: "test", build_type: "Release")
+  	end
 
-  desc "Release Build"
-  lane :beta do
-    gradle(task: "clean assembleRelease")  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
+  	desc "Release Build"
+  	lane :beta do
+    		gradle(task: "clean assembleRelease")
+  	end
+	
 	desc "Lint check"
 	lane :lint do
-		gradle(
-			task: "lint",
-			build_type: "Release"
-		)
+		gradle(task: "lint", build_type: "Release")
 	end
 
-  desc "Distribute"
-  lane :distribute do
-        gradle(
-  	  task: "assemble",
-  	  build_type: "Release"
-	)
-        # build_android_app is a built-in fastlane action.
-        firebase_app_distribution(
-            app: "1:1026274536055:android:acf843e337cf9b7ccaf472",
-	    firebase_cli_token: "1//0g7SYzdCDXMVcCgYIARAAGBASNwF-L9Ir5dLILC4Iz1GnlcBRJf_qpuUj2pXydiL3-Du-BgUoASyJ-7GURFrb3AJet8WOdwaPakk",
-            testers: "antonyleons29@gmail.com",
-            release_notes: "Lots of amazing new features to test out!"
-        )
-# 	mailgun(
-#   	    to: "antonyleons29@gmail.com",
-#   	    success: true,
-#  	    message: "Build successfull"
-# 	)
-	  
-    end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
+  	desc "Distribute"
+  	lane :distribute do
+        	gradle(task: "assemble", build_type: "Release")
+        	# build_android_app is a built-in fastlane action.
+        	firebase_app_distribution(
+            		app: "1:1026274536055:android:acf843e337cf9b7ccaf472",
+	    		firebase_cli_token: "1//0g7SYzdCDXMVcCgYIARAAGBASNwF-L9Ir5dLILC4Iz1GnlcBRJf_qpuUj2pXydiL3-Du-BgUoASyJ-7GURFrb3AJet8WOdwaPakk",
+            		testers: "antonyleons29@gmail.com",
+            		release_notes: "Lots of amazing new features to test out!"
+        	) 
+    	end
 end
