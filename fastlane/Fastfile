@@ -41,11 +41,11 @@ platform :android do
             testers: "antonyleons29@gmail.com",
             release_notes: "Lots of amazing new features to test out!"
         )
-	mailgun(
-  	    to: "antonyleons29@gmail.com",
-  	    success: true,
- 	    message: "Build successfull"
-	)
+# 	mailgun(
+#   	    to: "antonyleons29@gmail.com",
+#   	    success: true,
+#  	    message: "Build successfull"
+# 	)
 	  
     end
 
