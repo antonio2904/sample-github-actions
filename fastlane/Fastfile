@@ -21,6 +21,13 @@ platform :android do
     		gradle(task: "test", build_type: "Release")
   	end
 	
+	desc "Prepare Container"
+	lane :prepare do
+		sh("mkdir /root/.gradle")
+		sh("mkdir -p /gradle-cache/.gradle")
+		rsync(source: "/gradle-cache/.gradle", destination: "/root/.gradle", extra: "-a --include /caches --include /wrapper --exclude '/*'")
+	end
+	
 	desc "Lint check"
 	lane :lint do
 		gradle(task: "lint", build_type: "Release")
