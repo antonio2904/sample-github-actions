@@ -9,7 +9,7 @@ pipeline {
             steps {
                 // Copy the Gradle cache from the host, so we can write to it
                 sh "mkdir /root/.gradle"
-                sh "mkdir /gradle-cache/.gradle"
+                sh "mkdir -p /gradle-cache/.gradle"
                 sh "cp -R /gradle-cache/.gradle /root/.gradle"
 //                 sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
             }
@@ -35,8 +35,7 @@ pipeline {
 //                 }
                 success {
                     // Write updates to the Gradle cache back to the host
-                    sh "rm -r /gradle-cache/.gradle"
-                    sh "mkdir /gradle-cache/.gradle"
+                    sh "mkdir -p /gradle-cache/.gradle"
                     sh "cp -R /root/.gradle /gradle-cache/.gradle"
 //                     sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
                 }
