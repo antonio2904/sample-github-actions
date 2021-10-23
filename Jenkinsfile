@@ -20,11 +20,11 @@ pipeline {
 //                 sh 'bundle update fastlane'
             }
         }
-        stage('Lint check') {
-            steps {
-                sh 'bundle exec fastlane lint'
-            }
-        }
+//         stage('Lint check') {
+//             steps {
+//                 sh 'bundle exec fastlane lint'
+//             }
+//         }
         stage('Build and Distribute') {
             steps {
                 sh 'bundle exec fastlane distribute'
