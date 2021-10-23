@@ -10,7 +10,7 @@ pipeline {
                 // Copy the Gradle cache from the host, so we can write to it
                 sh "mkdir /root/.gradle"
                 sh "mkdir -p /gradle-cache/.gradle"
-                sh "cp -R /gradle-cache/.gradle/ /root/.gradle"
+                sh "cp -R /gradle-cache/.gradle/ /root"
             }
         }
         stage('Update Fastlane and Bundler') {
@@ -28,8 +28,8 @@ pipeline {
                     // Write updates to the Gradle cache back to the host
                     sh "mkdir -p /gradle-cache/.gradle/caches"
                     sh "mkdir -p /gradle-cache/.gradle/wrapper"
-                    sh "cp -R /root/.gradle/caches/ /gradle-cache/.gradle/caches"
-                    sh "cp -R /root/.gradle/wrapper/ /gradle-cache/.gradle/wrapper"
+                    sh "cp -R /root/.gradle/caches/ /gradle-cache/.gradle"
+                    sh "cp -R /root/.gradle/wrapper/ /gradle-cache/.gradle"
                 }
             }
         }
