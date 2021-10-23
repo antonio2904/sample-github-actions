@@ -1,8 +1,7 @@
 pipeline {
     agent {
         dockerfile { 
-            args '-u root'
-            args '--mount source=sample-gradle-cache,target=/gradle-cache'
+            args '-u root, --mount source=sample-gradle-cache,target=/gradle-cache'
         }
     }
     stages {
