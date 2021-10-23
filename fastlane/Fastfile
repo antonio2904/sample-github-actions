@@ -23,8 +23,8 @@ platform :android do
 	
 	desc "Prepare the container"
 	lane :prepare do
-		rsync(source: "/gradle-cache/.gradle/cache", destination: "root@host:/.gradle/cache")
-		rsync(source: "/gradle-cache.gradle/wrapper", destination: "root@host:/.gradle/wrapper")
+		rsync(source: "/gradle-cache/.gradle/cache", destination: "/root/.gradle/cache")
+		rsync(source: "/gradle-cache.gradle/wrapper", destination: "/root/.gradle/wrapper")
 	end
 	
 	desc "Lint check"
@@ -45,7 +45,7 @@ platform :android do
     	end
 	desc "Save Cache"
 	lane :cache do
-		rsync(source: "root@host:/.gradle/cache", destination: "/gradle-cache/.gradle/cache")
-		rsync(source: "root@host:/.gradle/wrapper", destination: "/gradle-cache/.gradle/wrapper")
+		rsync(source: "/root/.gradle/cache", destination: "/gradle-cache/.gradle/cache")
+		rsync(source: "/root/.gradle/wrapper", destination: "/gradle-cache/.gradle/wrapper")
 	end
 end
