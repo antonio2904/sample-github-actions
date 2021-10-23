@@ -16,7 +16,6 @@ pipeline {
         stage('Update Fastlane and Bundler') {
             steps {
                 sh 'bundle update --bundler'
-//                 sh 'bundle update fastlane'
             }
         }
         stage('Build and Distribute') {
@@ -28,8 +27,7 @@ pipeline {
                     // Write updates to the Gradle cache back to the host
                     sh "mkdir -p /gradle-cache/.gradle/caches"
                     sh "mkdir -p /gradle-cache/.gradle/wrapper"
-                    sh "cp -R /root/.gradle/caches/ /gradle-cache/.gradle"
-                    sh "cp -R /root/.gradle/wrapper/ /gradle-cache/.gradle"
+                    sh "cp -R /root/.gradle/caches/ /root/.gradle/wrapper/ /gradle-cache/.gradle"
                 }
             }
         }
