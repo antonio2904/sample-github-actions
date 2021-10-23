@@ -16,8 +16,8 @@ pipeline {
 //                 sh "mkdir /root/.gradle"
 //                 sh "mkdir -p /gradle-cache/.gradle"
 //                 sh "cp -R /gradle-cache/.gradle/ /root"
-//                    sh "bundle exec fastlane prepare"
-                   sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
+                   sh "bundle exec fastlane prepare"
+//                    sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
             }
         }
         stage('Build and Distribute') {
