@@ -35,6 +35,7 @@ pipeline {
 //                 }
                 success {
                     // Write updates to the Gradle cache back to the host
+                    sh "rm -r /gradle-cache/.gradle"
                     sh "mkdir /gradle-cache/.gradle"
                     sh "cp -R /root/.gradle /gradle-cache/.gradle"
 //                     sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
