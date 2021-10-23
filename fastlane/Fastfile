@@ -23,9 +23,7 @@ platform :android do
 	
 	desc "Prepare Container"
 	lane :prepare do
-		sh("mkdir /root/.gradle")
-		sh("mkdir -p /gradle-cache/.gradle")
-		rsync(source: "/gradle-cache/.gradle", destination: "/root/.gradle", extra: "-a --include /caches --include /wrapper --exclude '/*'")
+		rsync(source: "/gradle-cache/", destination: "/root/.gradle", extra: "-a --include /caches --include /wrapper --exclude '/*'")
 	end
 	
 	desc "Lint check"
