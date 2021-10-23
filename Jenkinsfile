@@ -26,15 +26,15 @@ pipeline {
             steps {
                 sh 'bundle exec fastlane distribute'
             }
-        }
-    }
-    post {
-        always {
-            archiveArtifacts artifacts: 'app/**/*.apk', fingerprint: true
-        }
-        success {
-            // Write updates to the Gradle cache back to the host
-            sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
+            post {
+//                 always {
+//                     archiveArtifacts artifacts: 'app/**/*.apk', fingerprint: true
+//                 }
+                success {
+                    // Write updates to the Gradle cache back to the host
+                    sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
+                }
+            }
         }
     }
 }
