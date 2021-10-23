@@ -22,10 +22,10 @@ pipeline {
 //         }
         stage('Build and Distribute') {
             steps {
-                sh 'cd /root/.gradle/'
-                sh 'ls'
-                sh "rsync -P --archive --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
 //                 sh 'cd /root/.gradle/'
+//                 sh 'ls'
+                sh "rsync -P --archive --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
+                sh 'cd /root/.gradle/'
                 sh 'ls'
                 sh 'bundle exec fastlane distribute'
             }
