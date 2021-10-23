@@ -22,18 +22,22 @@ pipeline {
 //         }
         stage('Build and Distribute') {
             steps {
+                sh 'cd /root/.gradle/'
+                sh 'ls'
                 sh "rsync -P --archive --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
+//                 sh 'cd /root/.gradle/'
+                sh 'ls'
                 sh 'bundle exec fastlane distribute'
             }
-            post {
-                success {
-                    // Write updates to the Gradle cache back to the host
-//                     sh "mkdir -p /gradle-cache/.gradle/caches"
-//                     sh "mkdir -p /gradle-cache/.gradle/wrapper"
-//                     sh "cp -R /root/.gradle/caches/ /root/.gradle/wrapper/ /gradle-cache/.gradle"
-                    sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper gradle-cache/ || true"
-                }
-            }
+//             post {
+//                 success {
+//                     // Write updates to the Gradle cache back to the host
+// //                     sh "mkdir -p /gradle-cache/.gradle/caches"
+// //                     sh "mkdir -p /gradle-cache/.gradle/wrapper"
+// //                     sh "cp -R /root/.gradle/caches/ /root/.gradle/wrapper/ /gradle-cache/.gradle"
+//                     sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper gradle-cache/ || true"
+//                 }
+//             }
         }
     }
 }
