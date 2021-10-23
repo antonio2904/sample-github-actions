@@ -5,11 +5,11 @@ pipeline {
         }
     }
     stages {
-        stage('Update Fastlane and Bundler') {
-            steps {
-                sh 'bundle update --bundler'
-            }
-        }
+//         stage('Update Fastlane and Bundler') {
+//             steps {
+//                 sh 'bundle update --bundler'
+//             }
+//         }
 //         stage('Prepare container') {
 //             steps {
 //                 // Copy the Gradle cache from the host, so we can write to it
@@ -27,7 +27,7 @@ pipeline {
                 sh "rsync -P --archive --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
                 sh 'cd /root/.gradle/'
                 sh 'ls'
-                sh 'bundle exec fastlane distribute'
+//                 sh 'bundle exec fastlane distribute'
             }
 //             post {
 //                 success {
