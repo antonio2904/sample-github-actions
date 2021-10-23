@@ -21,6 +21,12 @@ platform :android do
     		gradle(task: "test", build_type: "Release")
   	end
 	
+	desc "Prepare the container"
+	lane :prepare do
+		rsync(source: "/gradle-cache/.gradle/cache", destination: "root@host:/.gradle/cache")
+		rsync(source: "/gradle-cache.gradle/wrapper", destination: "root@host:/.gradle/wrapper")
+	end
+	
 	desc "Lint check"
 	lane :lint do
 		gradle(task: "lint", build_type: "Release")
@@ -37,4 +43,9 @@ platform :android do
 #             		release_notes: "Lots of amazing new features to test out!"
 #         	) 
     	end
+	desc "Save Cache"
+	lane :cache do
+		rsync(source: "root@host:/.gradle/cache", destination: "/gradle-cache/.gradle/cache")
+		rsync(source: "root@host:/.gradle/wrapper", destination: "/gradle-cache/.gradle/wrapper")
+	end
 end
