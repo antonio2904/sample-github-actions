@@ -8,7 +8,9 @@ pipeline {
         stage('Prepare container') {
             steps {
                 // Copy the Gradle cache from the host, so we can write to it
-                sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
+                sh "mkdir /root/.gradle"
+                sh "cp -R /gradle-cache/.gradle /root/.gradle"
+//                 sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
             }
         }
         stage('Update Fastlane and Bundler') {
@@ -32,7 +34,9 @@ pipeline {
 //                 }
                 success {
                     // Write updates to the Gradle cache back to the host
-                    sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
+                    sh "mkdir /gradle-cache/.gradle"
+                    sh "cp -R /root/.gradle /gradle-cache/.gradle"
+//                     sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
                 }
             }
         }
