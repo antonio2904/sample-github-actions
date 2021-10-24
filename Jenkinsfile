@@ -5,29 +5,30 @@ pipeline {
         }
     }
     stages {
-//         stage('Update Fastlane and Bundler') {
-//             steps {
-//                 sh 'bundle update --bundler'
-//             }
-//         }
-//         stage('Prepare container') {
-//             steps {
-//                 // Copy the Gradle cache from the host, so we can write to it
-// //                 sh "mkdir /root/.gradle"
-// //                 sh "mkdir -p /gradle-cache/.gradle"
-// //                 sh "cp -R /gradle-cache/.gradle/ /root"
-// //                    sh "bundle exec fastlane prepare"
-//                    sh "rsync --archive --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
-//             }
-//         }
+        stage('Prepare container') {
+            steps {
+                // Copy the Gradle cache from the host, so we can write to it
+//                 sh "mkdir /root/.gradle"
+//                 sh "mkdir -p /gradle-cache/.gradle"
+//                 sh "cp -R /gradle-cache/.gradle/ /root"
+//                    sh "bundle exec fastlane prepare"
+                   sh "rsync -av --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle"
+            }
+        }
+        stage('Update Fastlane and Bundler') {
+            steps {
+                sh 'bundle update --bundler'
+            }
+        }
+//         
         stage('Build and Distribute') {
             steps {
 //                 sh 'cd /root/.gradle/'
 //                 sh 'ls'
-                sh "rsync -r --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true && ./gradlew assembleDebug"
+//                 sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
 //                 sh 'cd /root/.gradle/ && ls'
 //                 sh 'ls'
-//                 sh 'bundle exec fastlane distribute'
+                sh 'bundle exec fastlane distribute'
             }
 //             post {
 //                 success {
