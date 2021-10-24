@@ -27,8 +27,8 @@ pipeline {
 //                 sh 'ls'
 //                 sh "rsync -a --include /caches --include /wrapper --exclude '/*' /gradle-cache/ /root/.gradle || true"
 //                 sh 'cd /root/.gradle/ && ls'
-//                 sh 'ls'
-                sh 'bundle exec fastlane distribute'
+                sh './gradlew -g /root/.gradle assembleDebug'
+//                 sh 'bundle exec fastlane distribute'
             }
 //             post {
 //                 success {
