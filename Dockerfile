@@ -28,7 +28,7 @@ apt-get install --no-install-recommends -y --allow-unauthenticated build-essenti
 gem install rake && \
 gem install fastlane && \
 gem install bundler && \
-apt-get -y install rsync grsync -y && \
+apt-get -y install rsync -y && \
 # Clean up
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 apt-get autoremove -y && \
