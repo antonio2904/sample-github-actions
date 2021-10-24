@@ -33,7 +33,7 @@ pipeline {
             post {
                 success {
                     // Write updates to the Gradle cache back to the host
-                    sh "rsync -av /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
+                    sh "rsync -av --delete /root/.gradle/caches /root/.gradle/wrapper /gradle-cache/ || true"
                 }
             }
         }
