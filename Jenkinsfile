@@ -36,7 +36,7 @@ pipeline {
 //                     sh "mkdir -p /gradle-cache/.gradle/caches"
 //                     sh "mkdir -p /gradle-cache/.gradle/wrapper"
 //                     sh "cp -R /root/.gradle/caches/ /root/.gradle/wrapper/ /gradle-cache/.gradle"
-                    sh "rsync -au /root/.gradle/caches /root/.gradle/wrapper gradle-cache/ || true"
+                    sh "rsync -av /root/.gradle/caches /root/.gradle/wrapper gradle-cache/ || true"
                 }
             }
         }
