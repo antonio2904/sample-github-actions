@@ -21,11 +21,6 @@ platform :android do
     		gradle(task: "test", build_type: "Release")
   	end
 	
-	desc "Prepare Container"
-	lane :prepare do
-		rsync(source: "/gradle-cache/", destination: "/root/.gradle", extra: "-a --include /caches --include /wrapper --exclude '/*'")
-	end
-	
 	desc "Lint check"
 	lane :lint do
 		gradle(task: "lint", build_type: "Release")
@@ -34,7 +29,7 @@ platform :android do
   	desc "Build and Distribute"
   	lane :distribute do
 		gradle(task: "clean")
-        	gradle(task: "assemble", build_type: "Debug")
+        	gradle(task: "assemble", build_type: "Release")
         	# build_android_app is a built-in fastlane action.
 #         	firebase_app_distribution(
 #             		app: "1:1026274536055:android:acf843e337cf9b7ccaf472",
