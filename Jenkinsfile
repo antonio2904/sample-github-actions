@@ -15,7 +15,17 @@ pipeline {
             steps {
                 sh 'bundle update --bundler'
             }
-        }         
+        }
+        stage('Lint check') {
+            steps {
+                sh 'bundle exec fastlane lint'
+            }
+        }
+        stage('Run tests') {
+            steps {
+                sh 'bundle exec fastlane test'
+            }
+        }
         stage('Build and Distribute') {
             steps {
                 sh 'bundle exec fastlane distribute'
