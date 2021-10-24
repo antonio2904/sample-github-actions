@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1026274536055",
+    "firebase_url": "https://newagent-cec6a.firebaseio.com",
+    "project_id": "newagent-cec6a",
+    "storage_bucket": "newagent-cec6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026274536055:android:acf843e337cf9b7ccaf472",
+        "android_client_info": {
+          "package_name": "com.antony.testingsample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026274536055-a3157uhjqeb4hpckrsarrbqqoe59ivlk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByBxV4SCaBx0YtMZRNAZ6396LqkfL7H7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026274536055-a3157uhjqeb4hpckrsarrbqqoe59ivlk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
