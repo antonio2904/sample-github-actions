@@ -1,2 +1,2 @@
 # sample-github-actions
-This project uses jetpack compose
+This project uses jetpack compose.
