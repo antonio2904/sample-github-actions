@@ -17,9 +17,8 @@ jobs:
           distribution: 'temurin'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - run: cd /var/lib
-      - run: mkdir gems
-      - run: sudo chmod -R a+w gems/
+      - run: cd /var
+      - run: sudo chmod -R a+w lib/
       - name: Install bundler
         run: gem install bundler
       - name: Bundle install dependencies
