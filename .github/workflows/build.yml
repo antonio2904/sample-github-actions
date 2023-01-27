@@ -24,3 +24,7 @@ jobs:
       - run: bundle install
       - name: Lint with fastlane
         run: bundle exec fastlane lint
+      - name: Run tests
+        run: bundle exec test
+      - name: Build release
+        run: bundle exec fastlane beta
