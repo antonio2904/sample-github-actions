@@ -18,6 +18,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - run: cd /var/lib
+      - run: mkdir gems
       - run: sudo chmod -R a+w gems/
       - name: Install bundler
         run: gem install bundler
