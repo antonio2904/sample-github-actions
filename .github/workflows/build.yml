@@ -19,5 +19,11 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Install bundler
+        run: gem install bundler
+      - name: Bundle install dependencies
+        run: bundle install --quiet
+      - name: Bundle update dependencies
+        run: bundle update --quiet
       - name: Lint with fastlane
-        run: fastlane lint
+        run: bundle exec fastlane lint
