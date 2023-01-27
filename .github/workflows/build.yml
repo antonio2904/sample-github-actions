@@ -17,6 +17,10 @@ jobs:
           distribution: 'temurin'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - run: sudo chmod -R a+w /var
+      - uses: ruby/setup-ruby@v1
+        with:
+        ruby-version: 3.2
+      - run: gem install bundler
+      - run: bundle install
       - name: Lint with fastlane
-        run: fastlane lint
+        run: bundle exec fastlane lint
