@@ -19,7 +19,7 @@ jobs:
         run: chmod +x gradlew
       - uses: ruby/setup-ruby@v1
         with:
-        ruby-version: 3.2
+          ruby-version: '3.2'
       - run: gem install bundler
       - run: bundle install
       - name: Lint with fastlane
