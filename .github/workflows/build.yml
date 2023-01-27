@@ -18,11 +18,5 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - run: sudo chmod -R a+w /var
-      - name: Install bundler
-        run: gem install bundler
-      - name: Bundle install dependencies
-        run: bundle install --quiet
-      - name: Bundle update dependencies
-        run: bundle update --quiet
       - name: Lint with fastlane
-        run: bundle exec fastlane lint
+        run: fastlane lint
